@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   myPost.get().then((doc) => {
     const data = doc.data();
-    document.write(data.content + `<br>`);
-    document.write(data.createdOn);
+    document.querySelector("#entry").innerHTML =
+      data.content + `<br>` + data.createdOn;
   });
 });
 
@@ -24,4 +24,10 @@ function googleLogin() {
       console.log(user);
     })
     .catch(console.log);
+}
+
+function updatePost(e) {
+  const db = firebase.firestore();
+  const myPost = db.collection("entries").doc("s1G11znw5wKjuP2rky9W");
+  myPost.update({ content: e.target.value });
 }
