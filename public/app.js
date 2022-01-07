@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   myPost.get().then((doc) => {
     const data = doc.data();
+
     document.querySelector("#entry").innerHTML =
-      data.content + `<br>` + data.createdOn;
+      data.content + `<br>` + Date(data.createdOn);
   });
 });
 
