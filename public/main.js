@@ -21,14 +21,18 @@ function googleLogin() {
 
     .then((result) => {
       const user = result.user;
-      document.write(`Hello ${user.displayName}!`);
+      // document.write(`Hello ${user.displayName}!`);
       console.log(user);
+      document.getElementById("username").innerHTML = user.displayName;
     })
     .catch(console.log);
 }
 
 function updatePost(e) {
+  // check to see if an entry exists for this day
+  // if so, append this to that entry
+  // if not, create a new document with this as its first collection
   const db = firebase.firestore();
   const myPost = db.collection("entries").doc("s1G11znw5wKjuP2rky9W");
-  myPost.update({ content: e.target.value });
+  myPost.update({ content: document.getElementById("newEntry").value });
 }
