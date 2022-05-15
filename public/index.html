@@ -5,46 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A Penny 4</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.6.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.6.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-database-compat.js"></script>
-    <script
-      defer
-      src="/__/firebase/9.6.1/firebase-firestore-compat.js"
-    ></script>
-    <script defer src="/__/firebase/9.6.1/firebase-storage-compat.js"></script>
-
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
-    <!-- Tailwind doesn't seem to be working on firebase live server -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src = "https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script type = "text/javascript" src = "main.js"></script>
 
 
   </head>
-  <body class="flex flex-col h-screen overflow-hidden">
-    <script src="main.js"></script>
+  <body>
 
 
     <!-- TODO: create a place to display the logged in user's display name -->
 
       <main role="main" class="w-full h-full flex-grow p-3 overflow-auto">
-        <h1 class="text-3xl md:text-5xl mb-4 font-extrabold" id="home">
+        <h1 id="home">
           A Penny 4
         </h1>
         <p class="py-2 text-xl">
-          This single-page "app" is meant to be used by people doing the same daily reading to share their thoughts with one another. It's a simple app that uses
-          <a class="text-indigo-600" href="https://tailwindcss.com/"
-            >Tailwind CSS</a
-          >
+          This single-page "app" is meant to be used by people doing the same daily reading to share their thoughts with one another.
 
-          utility framework for design and <a class="text-indigo-600" href="https://firebase.google.com/">Firebase</a> for hosting and database purposes.
+          utility framework for design and <a href="https://firebase.google.com/">Firebase</a> for hosting and database purposes.
         </p>
         <p>
           <button onclick="googleLogin()">Login with Google</button>
@@ -52,10 +30,10 @@
           <div id="username"></div>
           <div id="entry"> </div>
 
-          <input id="newEntry" class="border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"/>
+          <input id="newEntry" />
       
          
-          <button onclick="updatePost(event)">Post</button>
+          <button onclick="updatePost()">Post</button>
           </p>
       </main>
     </div>

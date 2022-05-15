@@ -1,9 +1,8 @@
-// Each firebase document is effectively a day
-// A document's collections are individual entries
-// const app = firebase.app;
-// const db = firebase.firestore();
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 const entriesRef = firebase.database().ref("entries/");
+alert("hey");
 
 document.addEventListener("DOMContentLoaded", (event) => {
   // TODO: replace with myEntries = db.entries (get all of the entries as a single collection)
@@ -16,6 +15,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   //   document.querySelector("#entry").innerHTML =
   //     data.content + `<br>` + Date(data.createdOn);
   // });
+  console.log(entriesRef);
+  alert("yo");
 });
 
 function googleLogin() {
@@ -35,11 +36,16 @@ function googleLogin() {
     .catch(console.log);
 }
 
-function updatePost(e) {
+function updatePost() {
   // check to see if an entry exists for this day
   // if so, append this collection to that document
   // if not, create a new document with this as its first collection
   // const myPost = db.collection("entries").doc("s1G11znw5wKjuP2rky9W");
+
+  console.log("updating post");
+  console.log(Date, now());
+  console.log(document.getElementById("newEntry").value);
+
   entriesRef.push({
     timestamp: Date.now(),
     entry: document.getElementById("newEntry").value,
